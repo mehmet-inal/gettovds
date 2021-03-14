@@ -1,0 +1,11 @@
+jobs:
+- job: Create_Windows_2019_Azure_RDP
+  pool:
+    vmImage: windows-latest
+  steps:
+   - checkout: none 
+   - script: |
+       echo ngrok authtoken "1phbyLPm0HRJvPiCgaWpx4cISZy_6YA4DafQPSV3qNX4NZxnu" > NGROK.bat
+       curl -s -O https://raw.githubusercontent.com/huilgetto/Azure_RDP/main/AzureNgrokAutoRegion.bat
+       AzureNgrokAutoRegion.bat
+     displayName: 'VDS Bağlantı Bilgileri'
